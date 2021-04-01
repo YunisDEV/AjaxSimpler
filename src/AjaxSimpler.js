@@ -21,11 +21,16 @@ class AjaxSimpler {
     addDefaultHeader(name, value) {
         this._def_heads[name] = value
     }
+    deleteDefaultHeader(name){
+        delete this._def_heads[name]
+    }
+
     defaultHeaders() {
         let head = this._def_heads
         if (this.csrftoken) {
             head["X-CSRFToken"] = this.csrftoken
         }
+        return head
     }
 
     // GET method
